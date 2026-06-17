@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Ultimate CSS Production Encyclopedia</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 15mm;
+            @bottom-right {
+                content: "Page " counter(page);
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 8.5pt;
+                color: #64748b;
+            }
+            @bottom-left {
+                content: "CSS Production Masterclass Encyclopedia • Comprehensive Reference Manual";
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 8.5pt;
+                color: #64748b;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #0f172a;
+            line-height: 1.6;
+            font-size: 10pt;
+            margin: 0;
+            padding: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .cover-page {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 6px solid #0ea5e9;
+        }
+        
+        .cover-page h1 {
+            margin: 0 0 10px 0;
+            font-size: 24pt;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #f8fafc;
+        }
+        
+        .cover-page p {
+            margin: 0;
+            font-size: 10.5pt;
+            color: #38bdf8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-strip {
+            font-size: 8.5pt;
+            color: #475569;
+            margin-bottom: 35px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .module-section {
+            margin-bottom: 45px;
+            page-break-inside: auto;
+        }
+
+        .module-title {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 10px 16px;
+            font-size: 13pt;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            page-break-after: avoid;
+        }
+
+        .topic-block {
+            margin-bottom: 25px;
+            page-break-inside: auto;
+        }
+
+        h3 {
+            font-size: 11.5pt;
+            color: #0284c7;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            page-break-after: avoid;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 4px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-top: 0;
+            margin-bottom: 14px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .code-label {
+            font-family: Arial, sans-serif;
+            font-size: 8pt;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            margin-top: 12px;
+            display: block;
+        }
+
+        .code-box {
+            background-color: #0f172a;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin: 0 0 20px 0;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 9pt;
+            color: #e2e8f0;
+            line-height: 1.5;
+            page-break-inside: avoid;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .comment { color: #64748b; font-style: italic; }
+        .selector { color: #38bdf8; font-weight: bold; }
+        .property { color: #f43f5e; }
+        .value { color: #e2e8f0; }
+        .string { color: #34d399; }
+        .keyword { color: #fb7185; }
+    </style>
+</head>
+<body>
+
+    <div class="cover-page">
+        <h1>THE ULTIMATE CSS PRODUCTION ENCYCLOPEDIA</h1>
+        <p>Complete Reference Manual — From Syntax Fundamentals to Enterprise Software Architecture</p>
+    </div>
+
+    <div class="header-strip">
+        Zero-Omission Master Blueprint &bull; Unabridged Implementation Manual &bull; Concrete Code Architectures
+    </div>
+
+    <!-- MODULE 1 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 1: The Core Rendering Engine, Syntactic Grammar, &amp; Cascade</div>
+        
+        <div class="topic-block">
+            <h3>1.1 Anatomy of a Ruleset &amp; Browser Parsing Mechanics</h3>
+            <p>The browser parsing engine transforms raw text files into a structured object ecosystem known as the CSS Object Model (CSSOM). This model is combined with the DOM tree to construct the final Render Tree. A ruleset consists of a selector, followed by a declaration block wrapped in curly braces. Each declaration must contain a property name, a colon, a value, and a terminating semicolon.</p>
+            <span class="code-label">1.1 Implementation Example: Standard Syntax Grammar</span>
+            <div class="code-box"><span class="selector">header.global-navigation</span> {
+  <span class="property">display</span>: <span class="value">flex</span>;
+  <span class="property">margin-bottom</span>: <span class="keyword">calc</span>(<span class="value">2rem * 1.5</span>);
+  <span class="property">padding</span>: <span class="value">12px 24px</span>;
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>1.2 Document Inclusion Topologies &amp; Thread-Blocking Performance</h3>
+            <p>Styles are registered within the document lifecycle through four pathways, each bringing distinct asset-blocking attributes to the browser's main thread:</p>
+            <ul>
+                <li><strong>Inline:</strong> Written directly within the HTML style attribute. It completely bypasses browser caching mechanisms and is restricted in production.</li>
+                <li><strong>Internal/Embedded:</strong> Placed within &lt;style&gt; tags in the HTML &lt;head&gt;. Useful for optimizing Critical Path CSS for above-the-fold content rendering.</li>
+                <li><strong>External Links:</strong> Loaded using &lt;link rel="stylesheet"&gt;. This is the enterprise standard, as it allows parallel asset fetching and edge CDN network caching.</li>
+                <li><strong>The @import Rule:</strong> Syntactically fetches stylesheets from within other CSS files. This creates a synchronous network request chain that blocks the browser's main thread, so it should be avoided.</li>
+            </ul>
+            <span class="code-label">1.2 Implementation Example: External File Assembly</span>
+            <div class="code-box"><span class="comment">/* Main entry point stylesheet mapping standard base layouts */</span>
+<span class="selector">body</span> {
+  <span class="property">box-sizing</span>: <span class="value">border-box</span>;
+  <span class="property">margin</span>: <span class="value">0</span>;
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>1.3 The CSS Specificity Engine Architecture</h3>
+            <p>When multiple selectors conflict, the browser calculates priority using a strict four-part vector: (Inline, ID, Class/Attribute/Pseudo-class, Element/Pseudo-element). Calculations are evaluated left-to-right; a higher number in a left-hand column overrides any value in a right-hand column, regardless of size.</p>
+            <span class="code-label">1.3 Implementation Example: Competing Specificity Metrics</span>
+            <div class="code-box"><span class="comment">/* Vector: [0, 0, 0, 1] - Element Selector */</span>
+<span class="selector">main</span> { <span class="property">background-color</span>: <span class="keyword">oklch</span>(<span class="value">1 0 0</span>); }
+
+<span class="comment">/* Vector: [0, 0, 1, 1] - Class + Element Selector */</span>
+<span class="selector">main.dashboard-view</span> { <span class="property">background-color</span>: <span class="keyword">oklch</span>(<span class="value">0.98 0.01 200</span>); }
+
+<span class="comment">/* Vector: [0, 1, 2, 1] - ID + 2 Classes + Element Selector (Wins Match) */</span>
+<span class="selector">#app-root .dashboard-view .widget-container &gt; section</span> { 
+  <span class="property">background-color</span>: <span class="keyword">oklch</span>(<span class="value">0.95 0.02 240</span>); 
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>1.4 Advanced Structural Family Combinators</h3>
+            <ul>
+                <li><strong>Descendant (Space):</strong> Matches any targeted node nested at any depth within the ancestor container.</li>
+                <li><strong>Child (&gt;):</strong> Strictly matches nodes located exactly one structural level beneath the parent element.</li>
+                <li><strong>Adjacent Sibling (+):</strong> Matches an element that shares the same parent and directly follows the initial node.</li>
+                <li><strong>General Sibling (~):</strong> Matches any elements that follow the initial node anywhere under the same parent element.</li>
+            </ul>
+            <span class="code-label">1.4 Implementation Example: Sibling and Sibling-Chain Controls</span>
+            <div class="code-box"><span class="comment">/* Targets form feedback blocks only when they immediately follow a focused input field */</span>
+<span class="selector">input.form-input:focus + span.feedback-message</span> {
+  <span class="property">opacity</span>: <span class="value">1</span>;
+  <span class="property">transform</span>: <span class="keyword">translateY</span>(<span class="value">0</span>);
+}
+
+<span class="comment">/* Targets all paragraphs that are siblings of and follow an h2 heading */</span>
+<span class="selector">h2 ~ p</span> {
+  <span class="property">margin-top</span>: <span class="value">1rem</span>;
+  <span class="property">color</span>: <span class="keyword">oklch</span>(<span class="value">0.3 0.02 240</span>);
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>1.5 Cascade Layer Processing (@layer) &amp; Inheritance Resets</h3>
+            <p>The Cascade resolves conflicting styles by checking Origin &amp; Importance, Cascade Layers (@layer), Selector Specificity, and Source Order. Standard formatting properties copy parent values down the tree automatically unless a reset keyword intercepts the cascade:</p>
+            <ul>
+                <li><code>inherit</code>: Forces an element to adopt the computed property value of its direct parent.</li>
+                <li><code>initial</code>: Resets the property to its default W3C specification value.</li>
+                <li><code>unset</code>: Acts as inherit if the property naturally inherits, otherwise acts as initial.</li>
+                <li><code>revert</code>: Rolls the style value back to the default styling defined by the user-agent (browser).</li>
+            </ul>
+            <span class="code-label">1.5 Implementation Example: Orchestrating Architecture Layers</span>
+            <div class="code-box"><span class="keyword">@layer</span> framework, application-override;
+
+<span class="keyword">@layer</span> framework {
+  <span class="selector">.ui-button</span> {
+    <span class="property">background-color</span>: <span class="keyword">oklch</span>(<span class="value">0.6 0.25 250</span>);
+    <span class="property">color</span>: <span class="value">#ffffff</span>;
+    <span class="property">padding</span>: <span class="value">10px 20px</span>;
+  }
+}
+
+<span class="keyword">@layer</span> application-override {
+  <span class="selector">.ui-button</span> {
+    <span class="property">background-color</span>: <span class="value">revert</span>;
+    <span class="property">color</span>: <span class="value">inherit</span>;
+  }
+}</div>
+        </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 2: The Box Model, Margin Mechanics, &amp; Sizing Geometry</div>
+        
+        <div class="topic-block">
+            <h3>2.1 Box Sizing Math Engine Control</h3>
+            <p>Every element is rendered as a layered rectangular box made up of Content, Padding, Border, and Margin zones.</p>
+            <ul>
+                <li><code>content-box</code>: Standard browser default. Width/height math applies only to the core content. Adding padding or borders extends layout dimensions outward.</li>
+                <li><code>border-box</code>: Enterprise production layout standard. Dimensions set limits at the outer edge of the border layer. Adding padding compresses content inward, maintaining predictable layout sizes.</li>
+            </ul>
+            <span class="code-label">2.1 Implementation Example: Safe Global Border-Box Engine Setup</span>
+            <div class="code-box"><span class="selector">html</span> {
+  <span class="property">box-sizing</span>: <span class="value">border-box</span>;
+}
+<span class="selector">*, *::before, *::after</span> {
+  <span class="property">box-sizing</span>: <span class="value">inherit</span>;
+}
+
+<span class="selector">.bounded-sidebar-panel</span> {
+  <span class="property">width</span>: <span class="value">450px</span>;
+  <span class="property">padding</span>: <span class="value">32px</span>;
+  <span class="property">border</span>: <span class="value">4px solid oklch(0.2 0.05 240)</span>;
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>2.2 Vertical Margin Collapsing &amp; Block Formatting Contexts (BFC)</h3>
+            <p>Top and bottom margins on adjacent block elements often combine to match the single largest declared value. To stop vertical margins from escaping parent layouts, you can use <code>display: flow-root</code> to create an isolated Block Formatting Context (BFC).</p>
+            <span class="code-label">2.2 Implementation Example: Margin Collapse Prevention Box</span>
+            <div class="code-box"><span class="selector">.parent-container-block</span> {
+  <span class="property">display</span>: <span class="value">flow-root</span>;
+  <span class="property">background-color</span>: <span class="keyword">oklch</span>(<span class="value">0.95 0 0</span>);
+}
+
+<span class="selector">.parent-container-block .child-content-node</span> {
+  <span class="property">margin-top</span>: <span class="value">50px</span>;
+  <span class="property">margin-bottom</span>: <span class="value">50px</span>;
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>2.3 Sizing Systems: Absolute (px) vs. Relative Units (em, rem, vw, vh, ch)</h3>
+            <ul>
+                <li><code>px</code>: Hardcoded pixel mapping.</li>
+                <li><code>em</code>: Scaled relative to the font-size of the parent container element.</li>
+                <li><code>rem</code>: Scaled relative to the base font-size defined on the root element.</li>
+                <li><code>vw</code> / <code>vh</code>: Based on a direct percentage (1% per unit) of the current viewport width or height.</li>
+                <li><code>ch</code>: Equal to the width of the zero ('0') glyph within the active font face. Useful for limiting line length to keep text readable.</li>
+            </ul>
+            <span class="code-label">2.3 Implementation Example: Modular Fluid Typography Matrix</span>
+            <div class="code-box"><span class="selector">html</span> {
+  <span class="property">font-size</span>: <span class="value">16px</span>;
+}
+
+<span class="selector">article.editorial-container</span> {
+  <span class="property">width</span>: <span class="value">90vw</span>;
+  <span class="property">max-width</span>: <span class="value">75ch</span>;
+  <span class="property">padding</span>: <span class="value">2.5rem</span>;
+}
+
+<span class="selector">article.editorial-container h1</span> {
+  <span class="property">font-size</span>: <span class="value">2.5rem</span>;
+  <span class="property">margin-bottom</span>: <span class="value">0.5em</span>;
+}</div>
+        </div>
+    </div>
+
+    <!-- MODULE 3 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 3: Web Typography, Color Semantics, &amp; Visual Gradients</div>
+        
+        <div class="topic-block">
+            <h3>3.1 Webfont Integration &amp; Rendering Optimization Flags</h3>
+            <p>Webfont ingestion requires precise optimization settings to prevent visual flashes and layout shifts during asset loading.</p>
+            <ul>
+                <li><code>font-display: swap</code>: Instructs the browser to render text immediately using a system fallback font while the custom font asset finishes fetching.</li>
+            </ul>
+            <span class="code-label">3.1 Implementation Example: Production Font-Face Registration</span>
+            <div class="code-box"><span class="selector">@font-face</span> {
+  <span class="property">font-family</span>: <span class="string">'ProductionGeometrique'</span>;
+  <span class="property">src</span>: <span class="keyword">url</span>(<span class="string">'/assets/fonts/prod-geo.woff2'</span>) <span class="keyword">format</span>(<span class="string">'woff2'</span>);
+  <span class="property">font-weight</span>: <span class="value">400</span>;
+  <span class="property">font-style</span>: <span class="value">normal</span>;
+  <span class="property">font-display</span>: <span class="value">swap</span>;
+}
+
+<span class="selector">body</span> {
+  <span class="property">font-family</span>: <span class="string">'ProductionGeometrique'</span>, <span class="value">system-ui</span>, <span class="value">sans-serif</span>;
+  <span class="property">-webkit-font-smoothing</span>: <span class="value">antialiased</span>;
+  <span class="property">-moz-osx-font-smoothing</span>: <span class="value">grayscale</span>;
+  <span class="property">text-rendering</span>: <span class="value">optimizeLegibility</span>;
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>3.2 Advanced Color Spaces (OKLCH) &amp; Component Variable Mapping</h3>
+            <p><strong>OKLCH:</strong> Calculates colors using uniform perceptual brightness steps across Lightness, Chroma (intensity), and Hue angle axes. This models human vision much more accurately than RGB or Hex.</p>
+            <p><code>currentColor</code>: A dynamic keyword that references the active text color value of the element or its parent.</p>
+            <span class="code-label">3.2 Implementation Example: OKLCH Design System Colors</span>
+            <div class="code-box"><span class="selector">:root</span> {
+  <span class="property">--brand-primary-lightness</span>: <span class="value">0.65</span>;
+  <span class="property">--brand-primary</span>: <span class="keyword">oklch</span>(<span class="value">var(--brand-primary-lightness) 0.24 260</span>);
+}
+
+<span class="selector">.interactive-card-component</span> {
+  <span class="property">color</span>: <span class="keyword">var</span>(<span class="value">--brand-primary</span>);
+  <span class="property">border</span>: <span class="value">2px solid currentColor</span>;
+}
+
+<span class="selector">.interactive-card-component:hover</span> {
+  <span class="property">--brand-primary-lightness</span>: <span class="value">0.45</span>;
+}</div>
+        </div>
+    </div>
+
+    <!-- MODULE 4 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 4: Advanced Axis Layout Paradigms (Flexbox &amp; CSS Grid)</div>
+        
+        <div class="topic-block">
+            <h3>4.1 CSS Flexible Box Layout (1D Axis Alignment Engineering)</h3>
+            <p>Flexbox manages element positioning along a single layout direction, controlling size scaling along a primary main axis and a secondary cross axis.</p>
+            <ul>
+                <li><code>flex: [grow] [shrink] [basis]</code>: Shorthand for managing element resizing constraints.</li>
+            </ul>
+            <span class="code-label">4.1 Implementation Example: Application Header Layout Control</span>
+            <div class="code-box"><span class="selector">.app-header-bar</span> {
+  <span class="property">display</span>: <span class="value">flex</span>;
+  <span class="property">flex-direction</span>: <span class="value">row</span>;
+  <span class="property">justify-content</span>: <span class="value">space-between</span>;
+  <span class="property">align-items</span>: <span class="value">center</span>;
+  <span class="property">gap</span>: <span class="value">20px</span>;
+}
+
+<span class="selector">.app-header-bar .search-bar-wrapper</span> {
+  <span class="property">flex</span>: <span class="value">1 0 320px</span>;
+}
+
+<span class="selector">.app-header-bar .profile-avatar</span> {
+  <span class="property">flex</span>: <span class="value">0 0 48px;</span>
+  <span class="property">height</span>: <span class="value">48px;</span>
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>4.2 CSS Grid Architecture (2D Multivariable Matrix Systems)</h3>
+            <p>CSS Grid models layout logic across rows and columns simultaneously, giving you total control over complex two-dimensional templates and spacing grids.</p>
+            <span class="code-label">4.2 Implementation Example: Auto-Adaptive Grid System Layout</span>
+            <div class="code-box"><span class="selector">.dashboard-grid-parent</span> {
+  <span class="property">display</span>: <span class="value">grid</span>;
+  <span class="property">grid-template-columns</span>: <span class="keyword">repeat</span>(<span class="value">auto-fit, minmax(280px, 1fr)</span>);
+  <span class="property">grid-auto-rows</span>: <span class="keyword">minmax</span>(<span class="value">180px, auto</span>);
+  <span class="property">gap</span>: <span class="value">24px</span>;
+  <span class="property">grid-auto-flow</span>: <span class="value">row dense</span>;
+}
+
+<span class="selector">.dashboard-grid-parent .hero-analytics-panel</span> {
+  <span class="property">grid-column</span>: <span class="value">span 2</span>;
+  <span class="property">grid-row</span>: <span class="value">span 2</span>;
+}</div>
+        </div>
+    </div>
+
+    <!-- MODULE 5 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 5: Positioning Topologies, Z-Index, &amp; Stacking Contexts</div>
+        
+        <div class="topic-block">
+            <h3>5.1 Positioning Engine Modes (relative, absolute, fixed, sticky)</h3>
+            <ul>
+                <li><code>static</code>: Standard default layout engine routing behaviors apply.</li>
+                <li><code>relative</code>: Elements remain in the normal layout flow, but can be offset relative to their original position without affecting surrounding elements.</li>
+                <li><code>absolute</code>: Detaches elements from the normal flow, positioning them relative to the nearest parent container with a non-static position.</li>
+                <li><code>fixed</code>: Pins elements to fixed coordinates relative directly to the browser viewport bounds.</li>
+                <li><code>sticky</code>: Toggles elements between relative and fixed positioning based on scroll boundaries.</li>
+            </ul>
+            <span class="code-label">5.1 Implementation Example: Floating Action Button &amp; Sticky Header System</span>
+            <div class="code-box"><span class="selector">.sticky-navigation-header</span> {
+  <span class="property">position</span>: <span class="value">sticky</span>;
+  <span class="property">top</span>: <span class="value">0</span>;
+  <span class="property">z-index</span>: <span class="value">100</span>;
+  <span class="property">background-color</span>: <span class="value">#ffffff</span>;
+}
+
+<span class="selector">.card-relative-anchor</span> {
+  <span class="property">position</span>: <span class="value">relative</span>;
+}
+
+<span class="selector">.absolute-badge-icon</span> {
+  <span class="property">position</span>: <span class="value">absolute</span>;
+  <span class="property">top</span>: <span class="value">-8px</span>;
+  <span class="property">right</span>: <span class="value">-8px</span>;
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>5.2 Stacking Context Engine Isolation (isolation: isolate)</h3>
+            <p>Z-index rendering is determined by explicit structural stacking layers rather than flat DOM positioning order. Elements create new rendering contexts when specific properties like opacity, filters, or transforms are applied. You can use <code>isolation: isolate</code> to prevent child element z-indexes from leaking into global layouts.</p>
+            <span class="code-label">5.2 Implementation Example: Preventing Stacking Layer Pollution</span>
+            <div class="code-box"><span class="selector">.modal-overlay-view</span> {
+  <span class="property">position</span>: <span class="value">fixed</span>;
+  <span class="property">top</span>: <span class="value">0</span>;
+  <span class="property">left</span>: <span class="value">0</span>;
+  <span class="property">z-index</span>: <span class="value">9999</span>;
+  <span class="property">isolation</span>: <span class="value">isolate</span>;
+}
+
+<span class="selector">.modal-overlay-view .inner-tooltip</span> {
+  <span class="property">z-index</span>: <span class="value">5</span>;
+}</div>
+        </div>
+    </div>
+
+    <!-- MODULE 6 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 6: GPU Transitions, Core Keyframes, &amp; Matrix Transformations</div>
+        
+        <div class="topic-block">
+            <h3>6.1 Hardware-Accelerated 3D Transforms</h3>
+            <p>Modifying elements via the transform engine processes updates directly on the GPU, avoiding expensive layout recalculations and repaint cycles.</p>
+            <ul>
+                <li><code>translateZ(0)</code>: Forces the browser to move the layer to the device GPU for optimized rendering performance.</li>
+            </ul>
+            <span class="code-label">6.1 Implementation Example: 3D Card Hover Interaction Model</span>
+            <div class="code-box"><span class="selector">.hardware-accelerated-card</span> {
+  <span class="property">transform</span>: <span class="keyword">perspective</span>(<span class="value">1000px</span>) <span class="keyword">rotateX</span>(<span class="value">0deg</span>) <span class="keyword">translateZ</span>(<span class="value">0</span>);
+  <span class="property">transition</span>: <span class="value">transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)</span>;
+  <span class="property">will-change</span>: <span class="value">transform</span>;
+}
+
+<span class="selector">.hardware-accelerated-card:hover</span> {
+  <span class="property">transform</span>: <span class="keyword">perspective</span>(<span class="value">1000px</span>) <span class="keyword">rotateX</span>(<span class="value">12deg</span>) <span class="keyword">translateZ</span>(<span class="value">15px</span>);
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>6.2 Keyframe Animations &amp; Mathematical Velocity Tuning</h3>
+            <p>Keyframes map out multi-step animation sequences, while custom cubic-bezier curves handle precise acceleration tuning between animation states.</p>
+            <span class="code-label">6.2 Implementation Example: Linear Infinitesimal Shimmer Engine Setup</span>
+            <div class="code-box"><span class="keyword">@keyframes</span> <span class="selector">structuralShimmerPattern</span> {
+  <span class="value">0%</span> { <span class="property">background-position</span>: <span class="value">-200% 0</span>; }
+  <span class="value">100%</span> { <span class="property">background-position</span>: <span class="value">200% 0</span>; }
+}
+
+<span class="selector">.skeleton-placeholder-node</span> {
+  <span class="property">background</span>: <span class="keyword">linear-gradient</span>(<span class="value">90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%</span>);
+  <span class="property">background-size</span>: <span class="value">200% 100%</span>;
+  <span class="property">animation</span>: <span class="value">structuralShimmerPattern 1.6s infinite cubic-bezier(0.4, 0, 0.2, 1)</span>;
+}</div>
+        </div>
+    </div>
+
+    <!-- MODULE 7 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 7: Responsive Ecosystems, Container Queries, &amp; Accessibility</div>
+        
+        <div class="topic-block">
+            <h3>7.1 Mobile-First Viewport Queries &amp; Accessibility Guards</h3>
+            <p>Responsive designs define base mobile configurations first, layering on layout enhancements inside min-width queries. To ensure access for all users, wrap and disable tracking transitions for those with system accessibility settings enabled via prefers-reduced-motion.</p>
+            <span class="code-label">7.1 Implementation Example: Accessible Responsive Component Layout Grid</span>
+            <div class="code-box"><span class="selector">.responsive-card-stack</span> {
+  <span class="property">display</span>: <span class="value">grid</span>;
+  <span class="property">grid-template-columns</span>: <span class="value">1fr</span>;
+  <span class="property">gap</span>: <span class="value">16px</span>;
+}
+
+<span class="keyword">@media</span> <span class="keyword">screen</span> <span class="keyword">and</span> (<span class="property">min-width</span>: <span class="value">768px</span>) {
+  <span class="selector">.responsive-card-stack</span> {
+    <span class="property">grid-template-columns</span>: <span class="keyword">repeat</span>(<span class="value">2, 1fr</span>);
+  }
+}
+
+<span class="keyword">@media</span> <span class="keyword">screen</span> <span class="keyword">and</span> (<span class="property">min-width</span>: <span class="value">1200px</span>) {
+  <span class="selector">.responsive-card-stack</span> {
+    <span class="property">grid-template-columns</span>: <span class="keyword">repeat</span>(<span class="value">4, 1fr</span>);
+  }
+}
+
+<span class="keyword">@media</span> (<span class="property">prefers-reduced-motion</span>: <span class="value">reduce</span>) {
+  <span class="selector">*, *::before, *::after</span> {
+    <span class="property">animation-duration</span>: <span class="value">0.01ms</span> <span class="keyword">!important</span>;
+    <span class="property">transition-duration</span>: <span class="value">0.01ms</span> <span class="keyword">!important</span>;
+    <span class="property">scroll-behavior</span>: <span class="value">auto</span> <span class="keyword">!important</span>;
+  }
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>7.2 Container Queries (Isolated Component Architecture)</h3>
+            <p>Container queries let components adapt their layout directly based on the structural dimensions of their parent container box, decoupling components from the global viewport size.</p>
+            <span class="code-label">7.2 Implementation Example: Component Architecture Container Engine</span>
+            <div class="code-box"><span class="selector">.widget-parent-slot</span> {
+  <span class="property">container-type</span>: <span class="value">inline-size</span>;
+  <span class="property">container-name</span>: <span class="value">sidebarWidgetContext</span>;
+}
+
+<span class="keyword">@container</span> <span class="value">sidebarWidgetContext</span> (<span class="property">min-width</span>: <span class="value">450px</span>) {
+  <span class="selector">.slotted-item-card</span> {
+    <span class="property">display</span>: <span class="value">flex</span>;
+    <span class="property">flex-direction</span>: <span class="value">row</span>;
+    <span class="property">align-items</span>: <span class="value">center</span>;
+    <span class="property">gap</span>: <span class="value">12px</span>;
+  }
+}</div>
+        </div>
+    </div>
+
+    <!-- MODULE 8 -->
+    <div class="module-section">
+        <div class="module-title">MODULE 8: Token Architectures, Native Nesting, &amp; Production Maintenance</div>
+        
+        <div class="topic-block">
+            <h3>8.1 Dynamic Design Token Engines (CSS Native Variables)</h3>
+            <p>Unlike preprocessor variables, native CSS custom properties run directly in the browser. This allows real-time mutations via client-side JavaScript, component styling overrides, and runtime theme switches.</p>
+            <span class="code-label">8.1 Implementation Example: Runtime Enterprise Theme Engine Architecture</span>
+            <div class="code-box"><span class="selector">:root</span> {
+  <span class="property">--canvas-background</span>: <span class="value">#ffffff</span>;
+  <span class="property">--text-primary-color</span>: <span class="keyword">oklch</span>(<span class="value">0.15 0.02 240</span>);
+}
+
+<span class="selector">[data-user-theme="dark"]</span> {
+  <span class="property">--canvas-background</span>: <span class="keyword">oklch</span>(<span class="value">0.12 0.02 240</span>);
+  <span class="property">--text-primary-color</span>: <span class="keyword">oklch</span>(<span class="value">0.95 0.01 240</span>);
+}
+
+<span class="selector">.workspace-surface-canvas</span> {
+  <span class="property">background-color</span>: <span class="keyword">var</span>(<span class="value">--canvas-background</span>);
+  <span class="property">color</span>: <span class="keyword">var</span>(<span class="value">--text-primary-color</span>);
+  <span class="property">transition</span>: <span class="value">background-color 0.3s ease, color 0.3s ease</span>;
+}</div>
+        </div>
+
+        <div class="topic-block">
+            <h3>8.2 Native CSS Selector Nesting</h3>
+            <p>Native selector nesting allows developers to group related style definitions directly within an element's block context, matching the visual structure of modern component frameworks without requiring a preprocessor compilation step.</p>
+            <span class="code-label">8.2 Implementation Example: Clean Native Structural Component Nesting</span>
+            <div class="code-box"><span class="selector">.enterprise-menu-list</span> {
+  <span class="property">display</span>: <span class="value">flex</span>;
+  <span class="property">flex-direction</span>: <span class="value">column</span>;
+  <span class="property">background-color</span>: <span class="keyword">var</span>(<span class="value">--canvas-background</span>);
+
+  <span class="selector">&amp; .menu-link-anchor</span> {
+    <span class="property">padding</span>: <span class="value">14px 28px</span>;
+    <span class="property">color</span>: <span class="keyword">var</span>(<span class="value">--text-primary-color</span>);
+    <span class="property">text-decoration</span>: <span class="value">none</span>;
+
+    <span class="selector">&amp;:hover</span> {
+      <span class="property">background-color</span>: <span class="keyword">oklch</span>(<span class="value">0.5 0.2 250</span>);
+      <span class="property">color</span>: <span class="value">#ffffff</span>;
+    }
+  }
+}</div>
+        </div>
+    </div>
+
+</body>
+</html>
